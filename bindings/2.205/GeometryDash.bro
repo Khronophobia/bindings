@@ -123,9 +123,9 @@ class AccountRegisterLayer : FLAlertLayer, TextInputDelegate, GJAccountRegisterD
 class AchievementBar : cocos2d::CCNodeRGBA {
 	// virtual ~AchievementBar();
 
-	static AchievementBar* create(char const*, char const*, char const*, bool);
+	static AchievementBar* create(char const* title, char const* desc, char const* icon, bool quest);
 
-	bool init(char const*, char const*, char const*, bool);
+	bool init(char const* title, char const* desc, char const* icon, bool quest);
 	TodoReturn show();
 
 	virtual void setOpacity(unsigned char);
@@ -185,7 +185,7 @@ class AchievementNotifier : cocos2d::CCNode {
 	static AchievementNotifier* sharedState() = ios 0x21f3d8;
 
 	TodoReturn achievementDisplayFinished();
-	TodoReturn notifyAchievement(char const*, char const*, char const*, bool);
+	TodoReturn notifyAchievement(char const* title, char const* desc, char const* icon, bool quest);
 	TodoReturn showNextAchievement();
 	TodoReturn willSwitchToScene(cocos2d::CCScene*) = ios 0x21f60c;
 
@@ -3245,8 +3245,8 @@ class EndLevelLayer : GJDropDownLayer {
 
 	virtual void keyBackClicked();
 	virtual void keyDown(cocos2d::enumKeyCodes);
-	virtual TodoReturn customSetup();
-	virtual TodoReturn showLayer(bool);
+	virtual void customSetup();
+	virtual void showLayer(bool);
 	virtual TodoReturn enterAnimFinished();
 	virtual void keyUp(cocos2d::enumKeyCodes);
 }
@@ -3901,9 +3901,9 @@ class GameLevelManager : cocos2d::CCNode {
 	TodoReturn getActiveSmartTemplate();
 	TodoReturn getAllSmartTemplates();
 	TodoReturn getAllUsedSongIDs();
-	TodoReturn getBasePostString();
+	static gd::string getBasePostString();
 	bool getBoolForKey(char const*);
-	TodoReturn getCommentKey(int, int, int, CommentKeyType);
+	gd::string getCommentKey(int ID, int page, int mode, CommentKeyType keytype);
 	TodoReturn getCompletedDailyLevels();
 	TodoReturn getCompletedGauntletDemons();
 	TodoReturn getCompletedGauntletLevels();
@@ -5244,8 +5244,8 @@ class GameStatsManager : cocos2d::CCNode {
 	TodoReturn getDemonLevelKey(GJGameLevel*);
 	TodoReturn getGauntletRewardKey(int);
 	TodoReturn getItemKey(int, int);
-	TodoReturn getItemUnlockState(int, UnlockType);
-	TodoReturn getItemUnlockStateLite(int, UnlockType);
+	int getItemUnlockState(int, UnlockType);
+	int getItemUnlockStateLite(int, UnlockType);
 	gd::string getLevelKey(GJGameLevel*);
 	gd::string getLevelKey(int, bool, bool, bool);
 	TodoReturn getListRewardKey(GJLevelList*);
@@ -5986,7 +5986,7 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
 	TodoReturn syncBGTextures();
 	TodoReturn teleportPlayer(TeleportPortalObject*, PlayerObject*);
 	TodoReturn testInstantCountTrigger(int, int, int, bool, int, gd::vector<int> const&, int, int);
-	TodoReturn toggleAudioVisualizer(bool);
+	void toggleAudioVisualizer(bool);
 	TodoReturn toggleDualMode(GameObject*, bool, PlayerObject*, bool);
 	TodoReturn toggleFlipped(bool, bool);
 	TodoReturn toggleGroup(int, bool);
@@ -6364,7 +6364,6 @@ class GJDropDownLayer : cocos2d::CCLayerColor {
 	cocos2d::CCPoint m_startPosition;
 	cocos2d::CCMenu* m_buttonMenu;
 	GJListLayer* m_listLayer;
-	bool m_controllerEnabled;
 	cocos2d::CCLayer* m_mainLayer;
 	bool m_hidden;
 	GJDropDownLayerDelegate* m_delegate;
@@ -7647,18 +7646,18 @@ class GJScoreCell : TableViewCell, FLAlertLayerProtocol {
 class GJSearchObject : cocos2d::CCNode {
 	// virtual ~GJSearchObject();
 
-	static GJSearchObject* create(SearchType, gd::string, gd::string, gd::string, int, bool, bool, bool, int, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, int, int, int);
-	static GJSearchObject* create(SearchType, gd::string);
-	static GJSearchObject* create(SearchType);
-	static GJSearchObject* createFromKey(char const*);
+	static GJSearchObject* create(SearchType searchType, gd::string searchQuery, gd::string difficulty, gd::string length, int page, bool star, bool uncompleted, bool featured, int songID, bool original, bool twoPlayer, bool customSong, bool songFilter, bool noStar, bool coins, bool epic, bool legendary, bool mythic, bool onlyCompleted, int demonFilter, int folder, int searchMode);
+	static GJSearchObject* create(SearchType searchType, gd::string searchQuery);
+	static GJSearchObject* create(SearchType searchType);
+	static GJSearchObject* createFromKey(char const* key);
 
 	char const* getKey();
 	TodoReturn getNextPageKey();
 	TodoReturn getNextPageObject();
-	TodoReturn getPageObject(int);
+	TodoReturn getPageObject(int page);
 	TodoReturn getPrevPageObject();
-	TodoReturn getSearchKey(SearchType, gd::string, gd::string, gd::string, int, bool, bool, bool, int, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, int, int, int);
-	bool init(SearchType, gd::string, gd::string, gd::string, int, bool, bool, bool, int, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, int, int, int);
+	TodoReturn getSearchKey(SearchType searchType, gd::string searchQuery, gd::string difficulty, gd::string length, int page, bool star, bool uncompleted, bool featured, int songID, bool original, bool twoPlayer, bool customSong, bool songFilter, bool noStar, bool coins, bool epic, bool legendary, bool mythic, bool onlyCompleted, int demonFilter, int folder, int searchMode);
+	bool init(SearchType searchType, gd::string searchQuery, gd::string difficulty, gd::string length, int page, bool star, bool uncompleted, bool featured, int songID, bool original, bool twoPlayer, bool customSong, bool songFilter, bool noStar, bool coins, bool epic, bool legendary, bool mythic, bool onlyCompleted, int demonFilter, int folder, int searchMode);
 	bool isLevelSearchObject();
 
 	SearchType m_searchType;
@@ -8312,9 +8311,14 @@ class InfoLayer : FLAlertLayer, LevelCommentDelegate, CommentUploadDelegate, FLA
 	static InfoLayer* create(GJGameLevel*, GJUserScore*, GJLevelList*);
 
 	TodoReturn confirmReport(cocos2d::CCObject*);
-	TodoReturn getAccountID();
-	TodoReturn getID();
-	TodoReturn getRealID();
+	int getAccountID();
+	int getID() {
+		if(m_score) return m_score->m_userID;
+		if(m_levelList) return - m_levelList->m_listID;
+		if(m_level) return m_level->m_levelID;
+		return 0;
+	}
+	int getRealID();
 	TodoReturn getSpriteButton(char const*, cocos2d::SEL_MenuHandler, cocos2d::CCMenu*, float, cocos2d::CCPoint);
 	bool init(GJGameLevel*, GJUserScore*, GJLevelList*);
 	bool isCorrect(char const*);
@@ -8396,7 +8400,8 @@ class ItemInfoPopup : FLAlertLayer {
 
 	virtual void keyBackClicked();
 
-	PAD = win 0x8;
+	int m_itemID;
+	UnlockType m_unlockType;
 	int m_accountID;
 }
 

@@ -1419,7 +1419,7 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
 	TodoReturn shouldExitHackedLevel() = win 0x18FE20;
 	TodoReturn stopCustomEnterEffect(EnterEffectObject*);
 	TodoReturn stopCustomEnterEffect(EnterEffectObject*, bool);
-	TodoReturn toggleAudioVisualizer(bool);
+	void toggleAudioVisualizer(bool);
 	TodoReturn updateAudioVisualizer();
 	TodoReturn updateCollisionBlocks();
 	TodoReturn updateExtraGameLayers();
@@ -2132,14 +2132,13 @@ class GJDropDownLayer : cocos2d::CCLayerColor {
 		m_startPosition = cocos2d::CCPointMake(0.f, 0.f);
 		m_buttonMenu = nullptr;
 		m_listLayer = nullptr;
-		m_controllerEnabled = false;
 		m_mainLayer = nullptr;
 		m_hidden = false;
 		m_delegate = nullptr;
 	}
 
 	static GJDropDownLayer* create(char const*);
-	static GJDropDownLayer* create(char const*, float);
+	static GJDropDownLayer* create(char const*, float) = mac 0x5acc30;
 
 	// inlined on windows
 	bool init(char const* title) {
@@ -4186,7 +4185,7 @@ class GameLevelManager : cocos2d::CCNode {
 	TodoReturn getMainLevel(int, bool) = win 0xF40E0, mac 0x5011a0;
 	TodoReturn getReportKey(int);
 	bool getBoolForKey(char const*) = mac 0x5280b0, win 0x110820;
-	TodoReturn getCommentKey(int, int, int, CommentKeyType) = mac 0x51e1d0;
+	gd::string getCommentKey(int, int, int, CommentKeyType) = mac 0x51e1d0;
 	TodoReturn getDailyTimer(GJTimedLevelType) = mac 0x5271c0;
 	TodoReturn getFolderName(int, bool) = mac 0x50bf00;
 	TodoReturn getGJUserInfo(int) = win 0x105270, mac 0x51b4d0;
@@ -4715,7 +4714,7 @@ class LevelTools {
 class GameStatsManager : cocos2d::CCNode {
 	~GameStatsManager();
 
-	TodoReturn getItemKey(int, int);
+	TodoReturn getItemKey(int, int) = mac 0x66050;
 	gd::string getLevelKey(int, bool, bool, bool) = mac 0x6cd80, win 0x16D350;
 	gd::string getLevelKey(GJGameLevel*) = mac 0x6cd20, win 0x16D2E0;
 	GJChallengeItem* getChallenge(int) = mac 0x73750, win 0x170BD0;
@@ -4736,7 +4735,7 @@ class GameStatsManager : cocos2d::CCNode {
 	TodoReturn getListRewardKey(GJLevelList*);
 	TodoReturn getPathRewardKey(int);
 	TodoReturn getSecretCoinKey(char const*);
-	TodoReturn getItemUnlockState(int, UnlockType);
+	int getItemUnlockState(int, UnlockType) = mac 0x77e40;
 	TodoReturn getQueuedChallenge(int);
 	TodoReturn getCompletedMapPacks();
 	TodoReturn getGauntletRewardKey(int) = mac 0x78490;
@@ -4754,7 +4753,7 @@ class GameStatsManager : cocos2d::CCNode {
 	TodoReturn getAwardedDiamondsForLevel(GJGameLevel*) = mac 0x70720;
 	TodoReturn getSecondaryQueuedChallenge(int);
 	TodoReturn getSpecialRewardDescription(gd::string, bool);
-	TodoReturn getSpecialUnlockDescription(int, UnlockType, bool);
+	TodoReturn getSpecialUnlockDescription(int, UnlockType, bool) = mac 0x789e0;
 	TodoReturn getStat(char const*) = win 0x168680, mac 0x66800;
 
 	/* unverified signature */
@@ -4797,7 +4796,7 @@ class GameStatsManager : cocos2d::CCNode {
 	TodoReturn uncompleteLevel(GJGameLevel*);
 	TodoReturn unlockPathChest(int);
 	TodoReturn verifyUserCoins();
-	TodoReturn accountIDForIcon(int, UnlockType);
+	TodoReturn accountIDForIcon(int, UnlockType) = mac 0x3087a0;
 	TodoReturn areRewardsLoaded() = mac 0x70f00;
 	TodoReturn checkAchievement(char const*) = win 0x168870;
 	//TodoReturn completedMapPack(GJMapPack*);
@@ -4844,7 +4843,7 @@ class GameStatsManager : cocos2d::CCNode {
 	TodoReturn shouldAwardSecretKey();
 	TodoReturn storePendingUserCoin(char const*);
 	//TodoReturn storeQueuedChallenge(int, GJChallengeItem*);
-	TodoReturn usernameForAccountID(int) = win 0x15c8b0;
+	TodoReturn usernameForAccountID(int) = win 0x15c8b0, mac 0x308810;
 	TodoReturn awardCurrencyForLevel(GJGameLevel*) = win 0x16F850;
 	TodoReturn awardDiamondsForLevel(GJGameLevel*) = win 0x16FD70;
 	//TodoReturn hasCompletedChallenge(GJChallengeItem*);
@@ -6190,7 +6189,7 @@ class EditorUI : cocos2d::CCLayer, FLAlertLayerProtocol, ColorSelectDelegate, GJ
 	TodoReturn deactivateRotationControl();
 	TodoReturn repositionObjectsToCenter(cocos2d::CCArray*, cocos2d::CCPoint, bool);
 	TodoReturn resetSelectedObjectsColor();
-	void constrainGameLayerPosition(float x, float y) = win 0xd7250;
+	void constrainGameLayerPosition(float x, float y) = win 0xd7250, mac 0x2e5c0;
 	// Inlined on Windows
 	void constrainGameLayerPosition() {
 		this->constrainGameLayerPosition(-100, -100);
@@ -7157,7 +7156,7 @@ class PauseLayer : CCBlockLayer {
 	void goEdit() = win 0x2b4e70;
 
 	virtual void keyBackClicked();
-	virtual void keyDown(cocos2d::enumKeyCodes) = win 0x2b4fa0;
+	virtual void keyDown(cocos2d::enumKeyCodes) = win 0x2b4fa0, mac 0x3b6010;
 	virtual void customSetup() = win 0x2B3740, mac 0x3b4500;
 	virtual void keyUp(cocos2d::enumKeyCodes);
 }
@@ -7392,7 +7391,7 @@ class EndLevelLayer : GJDropDownLayer {
 	virtual void keyBackClicked();
 	virtual void keyDown(cocos2d::enumKeyCodes);
 	virtual void customSetup() = win 0xE67B0, mac 0x49b580;
-	virtual TodoReturn showLayer(bool);
+	virtual void showLayer(bool) = mac 0x49d530;
 	virtual TodoReturn enterAnimFinished();
 	virtual void keyUp(cocos2d::enumKeyCodes);
 }
@@ -9683,14 +9682,18 @@ class ItemInfoPopup : FLAlertLayer {
 	bool init(int, UnlockType) = win 0x1f1300, mac 0x34f980;
 	~ItemInfoPopup();
 
-	void onClose(cocos2d::CCObject* sender);
+	void onClose(cocos2d::CCObject* sender) = mac 0x350f10;
 	void onCredit(cocos2d::CCObject* sender);
 
-	gd::string nameForUnlockType(int, UnlockType) = win 0x59430;
+	gd::string nameForUnlockType(int, UnlockType) = win 0x59430, mac 0x350c60;
 	/* unverified signature */
 	bool isUnlockedByDefault(int, UnlockType);
 
 	virtual void keyBackClicked();
+
+	int m_itemID;
+	UnlockType m_unlockType;
+	int m_accountID;
 }
 
 [[link(android)]]
@@ -11041,7 +11044,7 @@ class SetColorIDPopup : SetIDPopup, GJSpecialColorSelectDelegate {
 class SetGroupIDLayer : FLAlertLayer, TextInputDelegate {
 	static SetGroupIDLayer* create(GameObject*, cocos2d::CCArray*);
 
-	bool init(GameObject*, cocos2d::CCArray*);
+	bool init(GameObject*, cocos2d::CCArray*) = mac 0x2ef4a0;
 	~SetGroupIDLayer();
 
 	void onAddGroup(cocos2d::CCObject* sender);
@@ -12330,7 +12333,7 @@ class AchievementManager : cocos2d::CCNode {
 	~AchievementManager();
 
 	TodoReturn getAllAchievements();
-	TodoReturn getAchievementsWithID(char const*);
+	TodoReturn getAchievementsWithID(char const*) = mac 0x746b10;
 	TodoReturn getAchievementRewardDict();
 	TodoReturn getAllAchievementsSorted(bool);
 
@@ -12346,8 +12349,8 @@ class AchievementManager : cocos2d::CCNode {
 	TodoReturn percentageForCount(int, int);
 	/* unverified signature */
 	bool isAchievementEarned(char const*) = mac 0x7469d0;
-	TodoReturn limitForAchievement(gd::string);
-	TodoReturn achievementForUnlock(int, UnlockType);
+	TodoReturn limitForAchievement(gd::string) = mac 0x746c60;
+	TodoReturn achievementForUnlock(int, UnlockType) = mac 0x746d00;
 	TodoReturn addManualAchievements() = win 0xf74a;
 	TodoReturn areAchievementsEarned(cocos2d::CCArray*);
 	TodoReturn percentForAchievement(char const*) = mac 0x7469f0;
@@ -12895,7 +12898,7 @@ class CreateParticlePopup : FLAlertLayer, TextInputDelegate, ColorSelectDelegate
 	static CreateParticlePopup* create(ParticleGameObject*, cocos2d::CCArray*, gd::string);
 	static CreateParticlePopup* create(gd::string);
 
-	bool init(ParticleGameObject*, cocos2d::CCArray*, gd::string);
+	bool init(ParticleGameObject*, cocos2d::CCArray*, gd::string) = mac 0x044c7e0;
 	~CreateParticlePopup();
 
 	TodoReturn getPageMenu(int);
@@ -15306,10 +15309,15 @@ class InfoLayer : FLAlertLayer, LevelCommentDelegate, CommentUploadDelegate, FLA
 	bool init(GJGameLevel*, GJUserScore*, GJLevelList*) = mac 0x770000, win 0x223A80;
 	~InfoLayer();
 
-	TodoReturn getAccountID();
+	int getAccountID();
 	TodoReturn getSpriteButton(char const*, cocos2d::SEL_MenuHandler, cocos2d::CCMenu*, float, cocos2d::CCPoint);
-	TodoReturn getID();
-	TodoReturn getRealID();
+	int getID() {
+		if(m_score) return m_score->m_userID;
+		if(m_levelList) return - m_levelList->m_listID;
+		if(m_level) return m_level->m_levelID;
+		return 0;
+	}
+	int getRealID();
 
 	void onNextPage(cocos2d::CCObject* sender) = mac 0x772a20;
 	void onOriginal(cocos2d::CCObject* sender) = mac 0x772260;
