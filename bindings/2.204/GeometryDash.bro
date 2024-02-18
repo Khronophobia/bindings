@@ -1862,7 +1862,7 @@ class CreatorLayer : cocos2d::CCLayer, cocos2d::CCSceneTransitionDelegate, Dialo
 	void onTopLists(cocos2d::CCObject* sender) = win 0x70620;
 	void onTreasureRoom(cocos2d::CCObject* sender) = win 0x71110;
 	void onWeeklyLevel(cocos2d::CCObject* sender) = win 0x70be0;
-	TodoReturn scene() = win 0x6f460;
+	static cocos2d::CCScene* scene() = win 0x6f460;
 
 	virtual bool init() = win 0x6f550;
 	virtual void keyBackClicked();
@@ -4462,7 +4462,7 @@ class GameManager : GManager {
 	TodoReturn getNextUsedKey(int, bool) = win 0x128de0;
 	TodoReturn getOrderedCustomObjectKeys();
 	TodoReturn getPracticeMusicFile() = win 0x1217b0;
-	TodoReturn getUGV(char const*) = win 0x128a20;
+	bool getUGV(char const*) = win 0x128a20;
 	TodoReturn getUnlockForAchievement(gd::string, int&, UnlockType&) = win 0x122690;
 	TodoReturn groundHasSecondaryColor(int);
 	TodoReturn iconAndTypeForKey(int, int&, int&);
