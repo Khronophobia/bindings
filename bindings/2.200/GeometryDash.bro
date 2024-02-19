@@ -2178,7 +2178,7 @@ class GJDropDownLayer : cocos2d::CCLayerColor {
 	cocos2d::CCLayer* m_mainLayer;
 	bool m_hidden;
 	GJDropDownLayerDelegate* m_delegate;
-	int m_unknown;
+	bool m_unknown;
 }
 
 [[link(android)]]
@@ -5672,7 +5672,7 @@ class LevelEditorLayer : GJBaseGameLayer, LevelSettingsDelegate {
 	TodoReturn getNextFreeItemID(cocos2d::CCArray*);
 	TodoReturn getRelativeOffset(GameObject*);
 	TodoReturn getNextFreeBlockID(cocos2d::CCArray*);
-	TodoReturn getNextFreeGroupID(cocos2d::CCArray*);
+	int getNextFreeGroupID(cocos2d::CCArray*);
 	TodoReturn getDelayedSpawnNode();
 	TodoReturn getNextColorChannel();
 	TodoReturn getSelectedEffectPos();
@@ -7394,6 +7394,14 @@ class EndLevelLayer : GJDropDownLayer {
 	virtual void showLayer(bool) = mac 0x49d530;
 	virtual TodoReturn enterAnimFinished();
 	virtual void keyUp(cocos2d::enumKeyCodes);
+
+	bool m_unknown1;
+	bool m_unknown2;
+	bool m_unknown3;
+	bool m_unknown4;
+	bool m_unknown5;
+	int m_unknown6;
+	cocos2d::CCArray* m_coinsToAnimate;
 }
 
 
@@ -9145,7 +9153,7 @@ class OptionsLayer : GJDropDownLayer, FLAlertLayerProtocol {
 	void musicSliderChanged(cocos2d::CCObject*) = win 0x2abfc0;
 	void exitLayer() = win 0x2ab110;
 
-	virtual void customSetup() = win 0x2ab510;
+	virtual void customSetup() = win 0x2ab510, mac 0x75bf50;
 	virtual void layerHidden() = win 0x2ac660;
 	virtual void FLAlert_Clicked(FLAlertLayer*, bool);
 }
@@ -9767,7 +9775,7 @@ class ObjectToolbox : cocos2d::CCNode {
 
 	static ObjectToolbox* sharedState() = win 0x286590;
 	TodoReturn intKeyToFrame(int);
-	TodoReturn gridNodeSizeForKey(int);
+	float gridNodeSizeForKey(int);
 	TodoReturn perspectiveBlockFrame(int);
 	TodoReturn allKeys();
 
