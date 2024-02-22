@@ -859,7 +859,10 @@ class CCMenuItemSpriteExtra : cocos2d::CCMenuItemSprite {
 		//inlined on windows, member is in CCMenuItemSprite
 		m_scaleMultiplier = mult;
 	}
-	TodoReturn useAnimationType(MenuAnimationType);
+	inline void useAnimationType(MenuAnimationType animationType) {
+		m_animationType = animationType;
+		m_startPosition = this->getNormalImage()->getPosition();
+	}
 
 	virtual void activate() = win 0x259d0;
 	virtual void selected() = win 0x25aa0;
