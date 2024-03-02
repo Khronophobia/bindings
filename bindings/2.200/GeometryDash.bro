@@ -7294,10 +7294,10 @@ class SetTextPopup : FLAlertLayer, TextInputDelegate {
 
 	TodoReturn updateTextInputLabel();
 
-	virtual void keyBackClicked();
-	virtual TodoReturn show();
-	virtual TodoReturn textInputClosed(CCTextInputNode*);
-	virtual TodoReturn textChanged(CCTextInputNode*);
+	virtual void keyBackClicked() = mac 0x28b260;
+	virtual TodoReturn show() = mac 0x28b200;
+	virtual TodoReturn textInputClosed(CCTextInputNode*) = mac 0x28b0d0;
+	virtual TodoReturn textChanged(CCTextInputNode*) = mac 0x28b110;
 
 	CCTextInputNode* m_input;
 	bool m_disableDelegate;
@@ -11964,7 +11964,7 @@ class CCSpriteGrayscale : CCSpriteWithHue {
 	TodoReturn createWithTexture(cocos2d::CCTexture2D*);
 	TodoReturn createWithTexture(cocos2d::CCTexture2D*, cocos2d::CCRect const&, bool);
 	TodoReturn createWithSpriteFrame(cocos2d::CCSpriteFrame*) = mac 0x5b6a70;
-	TodoReturn createWithSpriteFrameName(gd::string const&) = mac 0x5b6b50;
+	static CCSpriteGrayscale* createWithSpriteFrameName(gd::string const&) = mac 0x5b6b50;
 
 	virtual TodoReturn getShaderName();
 	virtual TodoReturn shaderBody();
