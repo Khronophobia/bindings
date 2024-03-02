@@ -1,4 +1,5 @@
 build/
+build-*/
 .vscode/
 __scripts
 **/.DS_Store
