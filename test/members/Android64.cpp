@@ -62,6 +62,7 @@ GEODE_MEMBER_CHECK(GJBaseGameLayer, m_queuedButtons, 0x3300);
 GEODE_MEMBER_CHECK(GJBaseGameLayer, m_uiLayer, 0x3460);
 GEODE_MEMBER_CHECK(GJBaseGameLayer, m_sections, 0x34a8);
 
+GEODE_MEMBER_CHECK(PlayLayer, m_circleWaveArray, 0x37a0);
 GEODE_MEMBER_CHECK(PlayLayer, m_progressBar, 0x37d8);
 
 GEODE_MEMBER_CHECK(PlayerObject, m_unk4e4, 0x590);
@@ -78,6 +79,7 @@ GEODE_MEMBER_CHECK(PlayerObject, m_vehicleSize, 0x9c0);
 GEODE_MEMBER_CHECK(PlayerObject, m_touchingRings, 0xa08);
 GEODE_MEMBER_CHECK(PlayerObject, m_unk814, 0xa50);
 GEODE_MEMBER_CHECK(PlayerObject, m_position, 0xa58);
+GEODE_MEMBER_CHECK(PlayerObject, m_unk880, 0xa88);
 GEODE_MEMBER_CHECK(PlayerObject, m_platformerXVelocity, 0xac0);
 GEODE_MEMBER_CHECK(PlayerObject, m_isPlatformer, 0xb38);
 GEODE_MEMBER_CHECK(PlayerObject, m_unk950, 0xbe8);
