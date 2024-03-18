@@ -811,7 +811,7 @@ class CCIndexPath : cocos2d::CCObject {
 class CCLightFlash : cocos2d::CCNode {
 	// virtual ~CCLightFlash();
 
-	static CCLightFlash* create();
+	static CCLightFlash* create() = win 0x240f0;
 
 	TodoReturn cleanupFlash();
 	TodoReturn fadeAndRemove();
@@ -3474,7 +3474,7 @@ class EventLinkTrigger : EffectGameObject {
 class ExplodeItemNode : cocos2d::CCNode {
 	// virtual ~ExplodeItemNode();
 
-	static ExplodeItemNode* create(cocos2d::CCRenderTexture*);
+	static ExplodeItemNode* create(cocos2d::CCRenderTexture*) = win 0x2c0150;
 
 	TodoReturn createSprites(int, int, float, float, float, float, float, float, cocos2d::ccColor4F, cocos2d::ccColor4F, bool);
 	bool init(cocos2d::CCRenderTexture*);
@@ -4465,7 +4465,7 @@ class GameManager : GManager {
 	TodoReturn colorForPos(int);
 	TodoReturn colorKey(int, UnlockType) = win 0x122350;
 	TodoReturn completedAchievement(gd::string) = win 0x122b50;
-	TodoReturn countForType(IconType) = win 0x127270;
+	static int countForType(IconType) = win 0x127270;
 	TodoReturn defaultFrameForAnimation(int);
 	TodoReturn defaultYOffsetForBG2(int);
 	TodoReturn didExitPlayscene();
@@ -5556,7 +5556,7 @@ class GauntletLayer : cocos2d::CCLayer, LevelManagerDelegate {
 class GauntletNode : cocos2d::CCNode {
 	// virtual ~GauntletNode();
 
-	static GauntletNode* create(GJMapPack*);
+	static GauntletNode* create(GJMapPack*) = win 0x188680;
 
 	TodoReturn frameForType(GauntletType) = win 0x189b30;
 	bool init(GJMapPack*) = win 0x188740;
@@ -7583,7 +7583,7 @@ class GJRewardItem : cocos2d::CCObject {
 	// virtual ~GJRewardItem();
 
 	static GJRewardItem* create();
-	static GJRewardItem* create(int, int, gd::string);
+	static GJRewardItem* create(int p0, int p1, gd::string p2) = win 0x181f30;
 
 	TodoReturn createSpecial(GJRewardType, int, int, SpecialRewardItem, int, SpecialRewardItem, int, int, int) = win 0x181cd0;
 	TodoReturn createWithCoder(DS_Dictionary*) = win 0x1826b0;
@@ -7595,7 +7595,7 @@ class GJRewardItem : cocos2d::CCObject {
 	TodoReturn getRandomShardType();
 	TodoReturn getRewardCount(SpecialRewardItem);
 	TodoReturn getRewardObjectForType(SpecialRewardItem) = win 0x1825b0;
-	bool init(int, int, gd::string);
+	bool init(int, int, gd::string) = win 0x182020;
 	bool isShardType(SpecialRewardItem);
 	TodoReturn rewardItemToStat(SpecialRewardItem);
 
@@ -7874,7 +7874,7 @@ class GJSmartBlockPreview : cocos2d::CCNode {
 class GJSmartBlockPreviewSprite : cocos2d::CCNode {
 	// virtual ~GJSmartBlockPreviewSprite();
 
-	static GJSmartBlockPreviewSprite* create();
+	static GJSmartBlockPreviewSprite* create() = win 0x223c90;
 
 	virtual bool init();
 	virtual void visit();
@@ -9767,11 +9767,11 @@ class LikeItemLayer : FLAlertLayer {
 class ListButtonBar : cocos2d::CCNode {
 	// virtual ~ListButtonBar();
 
-	static ListButtonBar* create(cocos2d::CCArray*, cocos2d::CCPoint, int, int, float, float, float, float, int);
+	static ListButtonBar* create(cocos2d::CCArray*, cocos2d::CCPoint, int, int, float, float, float, float, int) = win 0x479d0;
 
 	TodoReturn getPage();
 	TodoReturn goToPage(int);
-	bool init(cocos2d::CCArray*, cocos2d::CCPoint, int, int, float, float, float, float, int);
+	bool init(cocos2d::CCArray*, cocos2d::CCPoint, int, int, float, float, float, float, int) = win 0x47af0;
 	void onLeft(cocos2d::CCObject* sender);
 	void onRight(cocos2d::CCObject* sender);
 }
@@ -9842,12 +9842,12 @@ class LoadingCircle : cocos2d::CCLayerColor {
 class LoadingCircleSprite : cocos2d::CCSprite {
 	// virtual ~LoadingCircleSprite();
 
-	static LoadingCircleSprite* create();
+	static LoadingCircleSprite* create() = win 0x48730;
 
 	TodoReturn fadeInCircle(bool);
 	TodoReturn hideCircle();
 
-	virtual bool init();
+	virtual bool init() = win 0x487f0;
 }
 
 [[link(android)]]
