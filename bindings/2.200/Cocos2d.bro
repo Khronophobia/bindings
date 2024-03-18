@@ -614,6 +614,21 @@ class cocos2d::CCMouseDispatcher {
 }
 
 [[link(win, android)]]
+class cocos2d::CCMoveBy {
+	static cocos2d::CCMoveBy* create(float, cocos2d::CCPoint const&) = mac 0x3960c0;
+
+	bool initWithDuration(float, cocos2d::CCPoint const&);
+
+	// CCMoveBy(cocos2d::CCMoveBy const&);
+	// CCMoveBy();
+
+	virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*);
+	virtual void update(float);
+	virtual void startWithTarget(cocos2d::CCNode*);
+	virtual cocos2d::CCActionInterval* reverse();
+}
+
+[[link(win, android)]]
 class cocos2d::CCMoveTo {
 	static cocos2d::CCMoveTo* create(float, cocos2d::CCPoint const&) = mac 0x3964a0;
 
@@ -1571,8 +1586,8 @@ class cocos2d::CCScaleBy {
 
 [[link(win, android)]]
 class cocos2d::CCSequence {
-	static cocos2d::CCSequence* create(cocos2d::CCArray*) = mac 0x393740;
-	// static cocos2d::CCSequence* create(cocos2d::CCFiniteTimeAction*, ...);
+	static cocos2d::CCSequence* create(cocos2d::CCArray*) = mac 0x393ab0;
+	// static cocos2d::CCSequence* create(cocos2d::CCFiniteTimeAction*, ...) = mac 0x393740;
 	static cocos2d::CCSequence* createWithTwoActions(cocos2d::CCFiniteTimeAction*, cocos2d::CCFiniteTimeAction*);
 	static cocos2d::CCSequence* createWithVariableList(cocos2d::CCFiniteTimeAction*, va_list) = mac 0x3937f0;
 
