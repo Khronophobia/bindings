@@ -11069,20 +11069,20 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
 	TodoReturn stopStreak2() = win 0x2d8b20;
 	TodoReturn storeCollision(PlayerCollisionDirection, int);
 	TodoReturn switchedDirTo(PlayerButton) = win 0x2d1c40;
-	TodoReturn switchedToMode(GameObjectType) = win 0x2d4fd0;
+	void switchedToMode(GameObjectType) = win 0x2d4fd0;
 	TodoReturn testForMoving(float, GameObject*);
-	TodoReturn toggleBirdMode(bool, bool) = win 0x2d3d30;
-	TodoReturn toggleDartMode(bool, bool) = win 0x2d42f0;
-	TodoReturn toggleFlyMode(bool, bool) = win 0x2d3aa0;
+	void toggleBirdMode(bool, bool) = win 0x2d3d30;
+	void toggleDartMode(bool, bool) = win 0x2d42f0;
+	void toggleFlyMode(bool, bool) = win 0x2d3aa0;
 	TodoReturn toggleGhostEffect(GhostType) = win 0x2d7a40;
 	void togglePlatformerMode(bool val) {
         m_isPlatformer = val;
     }
 	TodoReturn togglePlayerScale(bool, bool) = win 0x2d9170;
-	TodoReturn toggleRobotMode(bool, bool) = win 0x2d49f0;
-	TodoReturn toggleRollMode(bool, bool) = win 0x2d48c0;
-	TodoReturn toggleSpiderMode(bool, bool) = win 0x2d4ce0;
-	TodoReturn toggleSwingMode(bool, bool) = win 0x2d3fb0;
+	void toggleRobotMode(bool, bool) = win 0x2d49f0;
+	void toggleRollMode(bool, bool) = win 0x2d48c0;
+	void toggleSpiderMode(bool, bool) = win 0x2d4ce0;
+	void toggleSwingMode(bool, bool) = win 0x2d3fb0;
 	TodoReturn toggleVisibility(bool) = win 0x2c63f0;
 	TodoReturn touchedObject(GameObject*);
 	TodoReturn tryPlaceCheckpoint() = win 0x2da220;
@@ -11104,22 +11104,22 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
 	TodoReturn updateJumpVariables();
 	TodoReturn updateLastGroundObject(GameObject*);
 	TodoReturn updateMove(float);
-	TodoReturn updatePlayerArt() = win 0x2d23e0;
-	TodoReturn updatePlayerBirdFrame(int) = win 0x2d70e0;
-	TodoReturn updatePlayerDartFrame(int) = win 0x2d7680;
+	void updatePlayerArt() = win 0x2d23e0;
+	void updatePlayerBirdFrame(int) = win 0x2d70e0;
+	void updatePlayerDartFrame(int) = win 0x2d7680;
 	TodoReturn updatePlayerForce(cocos2d::CCPoint, bool);
-	TodoReturn updatePlayerFrame(int) = win 0x2d6b90;
+	void updatePlayerFrame(int) = win 0x2d6b90;
 	TodoReturn updatePlayerGlow() = win 0x2d8c50;
-	TodoReturn updatePlayerJetpackFrame(int) = win 0x2d6f20;
+	void updatePlayerJetpackFrame(int) = win 0x2d6f20;
 	void updatePlayerRobotFrame(int id) {
         if (id < 1) id = 1;
         else if (id > 0x43) id = 0x44;
 
         createRobot(id);
     }
-	TodoReturn updatePlayerRollFrame(int) = win 0x2d7300;
+	void updatePlayerRollFrame(int) = win 0x2d7300;
 	TodoReturn updatePlayerScale() = win 0x2d8bf0;
-	TodoReturn updatePlayerShipFrame(int) = win 0x2d6d60;
+	void updatePlayerShipFrame(int) = win 0x2d6d60;
 	void updatePlayerSpiderFrame(int id) {
         if (id < 1) id = 1;
         else if (id > 0x44) id = 0x45;
@@ -11128,7 +11128,7 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
     }
 
 	void updatePlayerSpriteExtra(gd::string) = win 0x2d7840;
-	TodoReturn updatePlayerSwingFrame(int) = win 0x2d74c0;
+	void updatePlayerSwingFrame(int) = win 0x2d74c0;
 	TodoReturn updateRobotAnimationSpeed();
 	TodoReturn updateRotation(float, float);
 	TodoReturn updateRotation(float) = win 0x2cbd20;
