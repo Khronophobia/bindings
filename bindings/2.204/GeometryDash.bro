@@ -10965,8 +10965,8 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
 	TodoReturn convertToClosestRotation(float);
 	TodoReturn copyAttributes(PlayerObject*);
 	void createFadeOutDartStreak() = win 0x2d2320;
-	TodoReturn createRobot(int) = win 0x2c35e0;
-	TodoReturn createSpider(int) = win 0x2c3870;
+	void createRobot(int) = win 0x2c35e0;
+	void createSpider(int) = win 0x2c3870;
 	void deactivateParticle();
 	void deactivateStreak(bool);
 	TodoReturn destroyFromHitHead();
