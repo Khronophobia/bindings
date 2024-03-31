@@ -6011,7 +6011,7 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
 	void setGroupParent(GameObject*, int);
 	void setStartPosObject(StartPosObject*);
 	TodoReturn setupLayers();
-	TodoReturn setupLevelStart(LevelSettingsObject*);
+	void setupLevelStart(LevelSettingsObject*);
 	TodoReturn setupReplay(gd::string);
 	TodoReturn shakeCamera(float, float, float);
 	TodoReturn shouldExitHackedLevel();
