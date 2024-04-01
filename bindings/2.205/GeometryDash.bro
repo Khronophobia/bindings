@@ -7037,7 +7037,7 @@ class GJItemIcon : cocos2d::CCSprite {
 
 	static GJItemIcon* create(UnlockType, int, cocos2d::ccColor3B, cocos2d::ccColor3B, bool, bool, bool, cocos2d::ccColor3B);
 
-	TodoReturn changeToLockedState(float);
+	void changeToLockedState(float);
 	inline static GJItemIcon* createBrowserItem(UnlockType unlockType, int itemID) {
 		return GJItemIcon::create(unlockType, itemID, {0xAF, 0xAF, 0xAF}, {0xFF, 0xFF, 0xFF}, false, true, true, {0xFF, 0xFF, 0xFF});
 	}
