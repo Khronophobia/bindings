@@ -4613,7 +4613,7 @@ class GameManager : GManager {
 	TodoReturn unlockColor(int, UnlockType) = win 0x122560;
 	TodoReturn unlockedPremium();
 	TodoReturn unlockIcon(int, IconType) = win 0x122220;
-	TodoReturn unlockTypeToIconType(int) = win 0x122190;
+	IconType unlockTypeToIconType(int) = win 0x122190;
 	void updateCustomFPS() = win 0x12ec60;
 	TodoReturn updateMusic();
 	TodoReturn verifyAchievementUnlocks();
