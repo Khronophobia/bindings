@@ -1695,7 +1695,7 @@ class CommunityCreditsPage : FLAlertLayer {
 class ConfigureHSVWidget : cocos2d::CCNode, TextInputDelegate {
 	// virtual ~ConfigureHSVWidget();
 
-	static ConfigureHSVWidget* create(cocos2d::ccHSVValue, bool, bool);
+	static ConfigureHSVWidget* create(cocos2d::ccHSVValue, bool, bool) = win 0x6adc0;
 
 	TodoReturn createTextInputNode(cocos2d::CCPoint, int);
 	TodoReturn getHSV(GameObject*, cocos2d::CCArray*, int) = win 0x6c320;
