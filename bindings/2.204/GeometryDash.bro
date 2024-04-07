@@ -1699,7 +1699,7 @@ class ConfigureHSVWidget : cocos2d::CCNode, TextInputDelegate {
 
 	TodoReturn createTextInputNode(cocos2d::CCPoint, int);
 	TodoReturn getHSV(GameObject*, cocos2d::CCArray*, int) = win 0x6c320;
-	bool init(cocos2d::ccHSVValue, bool, bool);
+	bool init(cocos2d::ccHSVValue, bool, bool) = win 0x6ae80;
 	TodoReturn onClose();
 	void onResetHSV(cocos2d::CCObject* sender);
 	void onToggleSConst(cocos2d::CCObject* sender);
