@@ -157,4 +157,7 @@ GEODE_MEMBER_CHECK(EditorUI, m_selectedObject, 0x370);
 GEODE_MEMBER_CHECK(ChallengesPage, m_dots, 0x1FC)
 GEODE_MEMBER_CHECK(ChallengesPage, m_challengeNodes, 0x210)
 
+GEODE_MEMBER_CHECK(ConfigureHSVWidget, m_hue, 0x124);
+GEODE_MEMBER_CHECK(ConfigureHSVWidget, m_saturationChecked, 0x130);
+
 #endif

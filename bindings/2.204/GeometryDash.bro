@@ -1712,7 +1712,7 @@ class ConfigureHSVWidget : cocos2d::CCNode, TextInputDelegate {
 
 	static ConfigureHSVWidget* create(cocos2d::ccHSVValue, bool, bool) = win 0x6adc0;
 
-	TodoReturn createTextInputNode(cocos2d::CCPoint, int);
+	void createTextInputNode(cocos2d::CCPoint, int);
 	TodoReturn getHSV(GameObject*, cocos2d::CCArray*, int) = win 0x6c320;
 	bool init(cocos2d::ccHSVValue, bool, bool) = win 0x6ae80;
 	TodoReturn onClose();
@@ -1726,6 +1726,13 @@ class ConfigureHSVWidget : cocos2d::CCNode, TextInputDelegate {
 	virtual void textInputOpened(CCTextInputNode*) {}
 	virtual void textInputClosed(CCTextInputNode*);
 	virtual void textChanged(CCTextInputNode*) = win 0x6b860;
+
+	PAD = win 0x18;
+	float m_hue;
+	float m_saturation;
+	float m_value;
+	bool m_saturationChecked;
+	bool m_brightnessChecked;
 }
 
 [[link(android)]]
