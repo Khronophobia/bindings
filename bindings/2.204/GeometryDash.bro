@@ -11126,7 +11126,7 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
 	TodoReturn spawnCircle();
 	TodoReturn spawnCircle2();
 	TodoReturn spawnDualCircle() = win 0x2d1a50;
-	TodoReturn spawnFromPlayer(PlayerObject*, bool) = win 0x2d8f90;
+	void spawnFromPlayer(PlayerObject*, bool) = win 0x2d8f90;
 	TodoReturn spawnPortalCircle(cocos2d::ccColor3B, float) = win 0x2d1810;
 	TodoReturn spawnScaleCircle() = win 0x2d1920;
 	TodoReturn specialGroundHit();
