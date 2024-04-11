@@ -1,3 +1,8 @@
+[[link(win, android)]]
+class cocos2d::CCEaseOut {
+	static cocos2d::CCEaseOut* create(cocos2d::CCActionInterval*, float) = mac 0x4ecb10;
+}
+
 
 [[link(win, android)]]
 class cocos2d::CCEaseSineInOut {
@@ -1254,8 +1259,8 @@ class cocos2d::CCParticleSystem {
 	static cocos2d::CCParticleSystem* createWithTotalParticles(unsigned int);
 
 	void initParticle(cocos2d::sCCParticle*);
-	bool initWithDictionary(cocos2d::CCDictionary*, char const*, bool);
-	bool initWithDictionary(cocos2d::CCDictionary*, bool);
+	bool initWithDictionary(cocos2d::CCDictionary*, char const*, bool) = mac 0x7838d0;
+	bool initWithDictionary(cocos2d::CCDictionary*, bool) = mac 0x7850b0;
 	bool initWithFile(char const*, bool);
 
 	unsigned int getAtlasIndex() const;
@@ -1880,15 +1885,15 @@ class cocos2d::extension::CCScale9Sprite {
 	virtual void setInsetRight(float) = mac 0x3d7850;
 	virtual float getInsetBottom() = mac 0x3d7800;
 	virtual void setInsetBottom(float) = mac 0x3d7870;
-	virtual bool initWithBatchNode(cocos2d::CCSpriteBatchNode*, CCRect, bool, CCRect) = mac 0x3d5430;
-	virtual bool initWithBatchNode(cocos2d::CCSpriteBatchNode*, CCRect, CCRect) = mac 0x3d53d0;
+	virtual bool initWithBatchNode(cocos2d::CCSpriteBatchNode*, cocos2d::CCRect, bool, cocos2d::CCRect) = mac 0x3d5430;
+	virtual bool initWithBatchNode(cocos2d::CCSpriteBatchNode*, cocos2d::CCRect, cocos2d::CCRect) = mac 0x3d53d0;
 	virtual bool initWithFile(const char*, cocos2d::CCRect, cocos2d::CCRect) = mac 0x3d6a50;
 	virtual bool initWithFile(const char*, cocos2d::CCRect) = mac 0x3d6b60;
 	virtual bool initWithFile(cocos2d::CCRect, const char*) = mac 0x3d6c50;
 	virtual bool initWithFile(const char*) = mac 0x3d6d40;
 	virtual bool initWithSpriteFrame(cocos2d::CCSpriteFrame*, cocos2d::CCRect) = mac 0x3d6e00;
 	virtual bool initWithSpriteFrame(cocos2d::CCSpriteFrame*) = mac 0x3d6f10;
-	virtual bool initWithSpriteFrameName(const char*, CCRect) = mac 0x3d6fd0;
+	virtual bool initWithSpriteFrameName(const char*, cocos2d::CCRect) = mac 0x3d6fd0;
 	virtual bool initWithSpriteFrameName(const char*) = mac 0x3d70d0;
 	virtual bool updateWithBatchNode(cocos2d::CCSpriteBatchNode*, cocos2d::CCRect, bool, cocos2d::CCRect) = mac 0x3d54d0;
 	virtual void setSpriteFrame(cocos2d::CCSpriteFrame*) = mac 0x3d7740;
