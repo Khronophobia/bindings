@@ -372,6 +372,7 @@ class cocos2d::CCParticleSystem {
 
 	// CCParticleSystem(cocos2d::CCParticleSystem const&);
 	// CCParticleSystem();
+	~CCParticleSystem() = imac 0x7d5860, m1 0x6d9dec; 
 	bool addParticle();
 	void calculateWorldSpace();
 	bool isFull();
@@ -505,6 +506,7 @@ class cocos2d::CCParticleSystemQuad {
 
 	// CCParticleSystemQuad(cocos2d::CCParticleSystemQuad const&);
 	// CCParticleSystemQuad();
+	~CCParticleSystemQuad() = imac 0x60dc00, m1 0x532f54;
 	bool allocMemory();
 	void listenBackToForeground(cocos2d::CCObject*);
 	void setupVBO();
@@ -1757,7 +1759,7 @@ class cocos2d::CCDictionary {
 	void removeObjectForKey(gd::string const&) = imac 0x30ed00, m1 0x2a0608;
 	//void removeObjectForKey(int);
 	void removeObjectsForKeys(cocos2d::CCArray*);
-	cocos2d::CCString const* valueForKey(gd::string const&);
+	cocos2d::CCString const* valueForKey(gd::string const&) = ios 0x42BAB0;
 	//cocos2d::CCString const* valueForKey(int);
 	bool writeToFile(char const*);
 
@@ -2059,6 +2061,8 @@ class cocos2d::CCString {
 	char const* getCString() const = imac 0x7b6cc0, m1 0x6bd3dc, ios 0x2786d0;
 	//intValue = ios 0x2787d4;
 	//createWithContentsOfFile = ios 0x278b74;
+
+	bool boolValue() const = ios 0x278884;
 }
 
 [[link(win, android)]]
